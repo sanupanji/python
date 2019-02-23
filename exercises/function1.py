@@ -15,4 +15,4 @@ def greater(num1, num2):
             return num1
 
 
-print(greater(input("first number: "), input("second number: ")))
+print(greater(int(input("first number: ")), int(input("second number: "))))
