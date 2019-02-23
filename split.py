@@ -1,7 +1,7 @@
 st = "Print only the swords that starts with s in this sentence"
 print(st.split(" "))
 for word in st.split(" "):
-    if word[0] == "s" or word[0] == "S":
+    if word[0].lower() == "s":  # or word[0] == "S":
         print(word, end=" ")
 
 
