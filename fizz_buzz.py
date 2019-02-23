@@ -9,4 +9,5 @@ def fizz_buzz(num):
         return num
 
 
-print(fizz_buzz(44))
+for i in range(1, 101):
+    print(fizz_buzz(i))
