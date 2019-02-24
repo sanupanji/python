@@ -1,0 +1,1 @@
+''.join(sorted(list(set(st.replace(" ", "").lower()))))
