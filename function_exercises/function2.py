@@ -3,7 +3,7 @@
 
 def word_check(str):
     # for word in str.split():
-    return str.split()[0][0] == str.split()[1][0]
+    return str.lower().split()[0][0] == str.lower().split()[1][0]
 
 
-print(word_check("fgf df"))
+print(word_check("fgf Fdf"))

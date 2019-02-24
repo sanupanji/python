@@ -2,10 +2,9 @@
 
 
 def within_10_of_100_200(n):
-    if 190 <= n <= 210 or 90 <= n <= 110:
-        return True
-    else:
-        return False
+    # return 190 <= n <= 210 or 90 <= n <= 110
+    # using abs
+    return abs(100 - n) <= 10 or abs(200-n) <= 10
 
 
-print(within_10_of_100_200(110))
+print(within_10_of_100_200(116))
