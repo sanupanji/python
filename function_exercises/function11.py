@@ -27,4 +27,4 @@ def check_007(lst):
         return False
 
 
-print(check_007([1, 0, 2, 30, 33, 0, 7, 0, 35, 7]))
+print(check_007([1,  0, 7, 0, 2, 30, 33, 0, 7, 0, 35, 7]))

@@ -2,9 +2,11 @@
 
 
 def consec(lst):
-    for i in lst:
-        if i == 3:
-        return lst[lst.index(3)+1] == 3
+    for i in range(0, len(lst)-1):
+        if lst[i] == 3 and lst[i+1] == 3:
+            return True
+    else:
+        return False
 
 
-print(consec([1, 2, 3, 4, 4, 5]))
+print(consec([1, 2, 3, 3, 4, 4, 5]))

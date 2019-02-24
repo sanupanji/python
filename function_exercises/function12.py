@@ -16,4 +16,4 @@ def count_prime(num):
     return count
 
 
-print(count_prime(100))
+print(count_prime(10))
