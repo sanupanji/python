@@ -1,5 +1,7 @@
-'''z = 5/0
-Traceback (most recent call last):
+'''
+
+z = 5/0
+ Traceback (most recent call last):
   File "c:\CODE\python\exception handling\ZeroDivisionError.py", line 1, in <module>
     z = 5/0
 ZeroDivisionError: division by zero
