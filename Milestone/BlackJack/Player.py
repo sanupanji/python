@@ -37,3 +37,9 @@ class Plyer():
 
     def rerun(self):
         Plyer.cardls = []
+
+    def count(self):
+        return Plyer.c.count()
+
+    def reload(self):
+        Plyer.c.reload()

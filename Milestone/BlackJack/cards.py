@@ -44,6 +44,14 @@ class cards():
         for key in cards.values:
             cards.data[key] = list(cards.ty)
 
+    def count(self):
+        countcard = 0
+        for i in cards.data:
+            countcard += len(cards.data[i])
+
+        return countcard
+        
+
     def choose(self):
 
         x = random.choice(list(cards.data.keys()))
