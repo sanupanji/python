@@ -14,14 +14,14 @@ hidden = """
 
 
 def start(inhandmoney):
-    
+
     # global hidden
     p = Plyer()
     if p.count() < 30:
-        print("Reshuffling... ") 
+        print("Reshuffling... ")
         p.reload()
         time.sleep(3)
-        
+
     print(f"Remaining cards {p.count()} ")
 
     Hit = True
@@ -55,13 +55,20 @@ def start(inhandmoney):
 
 def plyerman(lscard, Hit, p, inhandmoney, dealmoney, linesplayer, hiddenls, lscompvalue):
 
+    print("\n"*100)
     printcards(linesplayer)
     print(f"Sum : {sum(lscard)}")
     printcards(hiddenls)
     print(f"Sum : {sum(lscompvalue)}")
+    if sum(lscard) >= 21:
+        print("Jackpot, Player wins")
+        inhandmoney += dealmoney
+        p.rerun()
+        start(inhandmoney)
+
     hitstand = input(
         "Do you want to Hit again or Stand, enter HIT or STAND: ").upper()
-    if hitstand == "STAND":
+    if hitstand == " ":
         Hit = False
         computerprint([hiddenls[0]], lscompvalue,
                       linesplayer, lscard, inhandmoney, dealmoney, p)
@@ -70,8 +77,8 @@ def plyerman(lscard, Hit, p, inhandmoney, dealmoney, linesplayer, hiddenls, lsco
 
         ls = p.profile()
         lscard.append(ls[1])
+        print("\n"*100)
         printcards(ls[2][1:])
-        
 
         while sum(lscard) > 21:
             if lscard.count(11) == 0:
@@ -93,38 +100,32 @@ def plyerman(lscard, Hit, p, inhandmoney, dealmoney, linesplayer, hiddenls, lsco
 
         hitstand = input(
             "Do you want to Hit again or Stand, enter HIT or STAND: ").upper()
-        if hitstand == "STAND":
+        if hitstand == " ":
             Hit = False
             computerprint([hiddenls[0]], lscompvalue, ls[2]
                           [1:len(lscard)+1], lscard, inhandmoney, dealmoney, p)
 
 
-
-
-
 def computerprint(compcardlist, compvalue, playerls, lsplyercard, inhand, betting, p):
-    
-  
+
     compturn = True
     while compturn == True:
+        print("\n"*100)
         printcards(playerls)
         print(f"Sum : {sum(lsplyercard)}")
         ls = p.profile()
         compvalue.append(ls[1])
         printcards([ls[2][0]]+ls[2][len(lsplyercard)+1:])
-        time.sleep(1)
-        
-        
 
         while sum(compvalue) > 21:
             if compvalue.count(11) != 0:
                 compvalue = checkA(compvalue)
             break
         print(f"Sum : {sum(compvalue)}")
+        time.sleep(3)
         if sum(compvalue) < sum(lsplyercard):
             continue
-        if sum(compvalue) < sum(lsplyercard):
-            continue
+
         elif sum(compvalue) == sum(lsplyercard):
             print("PUSH")
             p.rerun()
@@ -136,7 +137,6 @@ def computerprint(compcardlist, compvalue, playerls, lsplyercard, inhand, bettin
             start(inhand)
             compturn = False
 
-
         print("BUST")
         print("Player wins")
         inhand += betting
@@ -144,8 +144,6 @@ def computerprint(compcardlist, compvalue, playerls, lsplyercard, inhand, bettin
         start(inhand)
 
 
-    
-            
 def checkA(ls):
 
     ls[ls.index(11)] = 1
@@ -156,9 +154,10 @@ def printcards(cardls):
 
     player = [x for x in range(len(cardls))]
     lines = [cardls[i].splitlines() for i in player]
-    #print("=================================================================================")
+    # print("=================================================================================")
     for l in zip(*lines):
         print(*l, sep='')
+
 
 print("Computer dealer")
 
