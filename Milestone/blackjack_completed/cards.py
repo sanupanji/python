@@ -19,7 +19,7 @@ class cards():
     ty = [dimond, heart, club, spade]
 
     values = {
-        "One": 11,
+        "Ace": 11,
         "Two": 2,
         "Three": 3,
         "Four": 4,
